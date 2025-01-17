@@ -1,0 +1,58 @@
+---
+title: "Class 2025-01-17"
+format: html
+---
+
+## Exercise 1
+
+* Create a list containing tuples of x and y coordinates of all points of a regular grid for $x \in [0,10]$ and $y \in [0,10]$.
+
+```{python}
+g = [(x,y) for x in range(11) for y in range(11)]
+len(g)
+```
+
+* Count the number of points where $y>x$.
+
+```{python}
+len([(x,y) for x,y in g if y > x])
+len([(x,y) for x in range(11) for y in range(11) if y > x])
+```
+
+* Count the number of points $x$ or $y$ is prime.
+
+```{python}
+prime = [2,3,5,7]
+[(x,y) for x,y in g if x in prime or y in prime]
+```
+
+
+## Exercise 2
+
+1. Write a function, kg_to_lb, that converts a list of weights in kilograms to a list of weights in pounds (there a 1 kg = 2.20462 lbs). Include a doc string and function annotations.
+
+```{python}
+def kg_to_lb(wt: list) -> list:
+    "Convert weight in kgs to weight in lbs"
+
+    return [x * 2.20462 for x in wt]
+
+kg_to_lb([1,2,3])
+```
+
+2. Write a second function, total_lb, that calculates the total weight in pounds of an order, the input arguments should be a list of item weights in kilograms and a list of the number of each item ordered.
+
+```{python}
+def total_lb(wt: list, n: list) -> float:
+    "Calculate the total weight of items in lbs from kg and n"
+
+    if (len(n) == 1):
+        n = n*len(wt)
+
+    if (len(n) != len(wt)):
+        raise ValueError("Length of weight and n do not match")
+ 
+    return sum([x*y*2.20462 for x,y in zip(wt, n)])
+
+total_lb([1,2,3],[2,2])
+```
