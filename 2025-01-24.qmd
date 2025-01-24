@@ -1,0 +1,62 @@
+---
+title: "Exercises"
+format: html
+---
+
+# Exercise 1
+
+```{python}
+x = {"a": 1, "b": 2, "c": 3}
+y = {"c": 5, "d": 6, "e": 7}
+
+def merge(d1: dict, d2: dict) -> dict:
+  return x | y
+
+print(f"m={merge(x,y)}\nx={x}\ny={y}")
+
+
+def merge(d1: dict, d2: dict) -> dict:
+  return {**x, **y}
+
+print(f"m={merge(x,y)}\nx={x}\ny={y}")
+
+def merge(d1: dict, d2: dict) -> dict:
+  d_new = d1.copy()
+  d_new.update(d2)
+  return d_new
+
+print(f"m={merge(x,y)}\nx={x}\ny={y}")
+
+def merge(d1: dict, d2: dict) -> dict:
+  d_new = d1.copy()
+  
+  for k,v in d2.items():
+    d_new[k] = v
+
+  return d_new
+
+print(f"m={merge(x,y)}\nx={x}\ny={y}")
+```
+
+
+# Exercise 2
+
+* A fixed collection of 100 integers.
+
+  - Vector / array
+
+* A queue (first in first out) of customer records.
+  
+  - Deque
+
+* A stack (first in last out) of customer records.
+
+  - Vector / array
+
+* A count of word occurrences within a document.
+
+  - Dictionary
+
+* The heights of the bars in a histogram with even binwidths
+
+  - Vector / array
