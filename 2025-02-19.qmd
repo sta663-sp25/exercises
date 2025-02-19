@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Class examples"
 format: html
 ---
 
@@ -69,7 +69,6 @@ from sklearn.pipeline import Pipeline
 p = Pipeline([
   ("model", DecisionTreeClassifier())
 ])
-
 
 digits_tree = GridSearchCV(
   p,
