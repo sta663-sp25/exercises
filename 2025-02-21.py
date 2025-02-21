@@ -12,7 +12,6 @@ class interact_features(BaseEstimator, TransformerMixin):
     self.include_intercept = include_intercept
   
   def fit(self, X, y=None):
-    # https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/base.py#L495
     validate_data(self, X=X, reset=True, ensure_min_features=2)
     _check_feature_names(self, X=X, reset=True)
 
