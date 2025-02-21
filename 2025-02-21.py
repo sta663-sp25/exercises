@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
-
 import sklearn
-sklearn.set_config(display="text")
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.utils.validation import check_is_fitted, validate_data, _check_feature_names
+
+sklearn.set_config(display="text")
 
 class interact_features(BaseEstimator, TransformerMixin):
   def __init__(self, interaction_only = False, include_intercept = False):
@@ -38,7 +38,6 @@ class interact_features(BaseEstimator, TransformerMixin):
     if self.include_intercept:
       new_X = np.column_stack([np.ones((new_X.shape[0],1)), new_X])
 
-    
     return new_X
 
   def get_feature_names_out(self):
@@ -63,7 +62,7 @@ class interact_features(BaseEstimator, TransformerMixin):
     return new_feat_names
 
 
-X = pd.DataFrame({"x1": range(1,6), "x2": range(5, 0, -1)})
+X = pd.DataFrame({"x1": range(1,6), "x2": range(5, 0, -1), "x3": [1,2,3,4,5]})
 Y = pd.DataFrame({"x1": range(1,6)})
 Z = np.array(X)
 
