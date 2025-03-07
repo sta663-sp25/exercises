@@ -85,7 +85,8 @@ accuracy(predict(beta, X),y)
 
 res = optax_optimize(
   beta, X, y, loss_fn, predict, accuracy,
-  optax.sgd(learning_rate=0.01), 
+  optax.sgd(learning_rate=0.01),
+  #optax.adam(learning_rate=1, b1=0.9, b2=0.999, eps=1e-8),
   steps=100, batch_size=100, seed=1234
 )
 
