@@ -27,7 +27,7 @@ def optax_optimize(params, X, y, loss_fn, predict, score, optimizer, steps=50, b
   for iter in range(steps):
     res["loss"].append(loss_fn(params, X, y).item())
     res["score"].append(score(predict(params, X), y).item())
-    
+
     for batch in batches.reshape(-1, batch_size):
       grad = grad_fn(params, X[batch,:], y[batch])
       updates, opt_state = optimizer.update(grad, opt_state)
@@ -85,8 +85,8 @@ accuracy(predict(beta, X),y)
 
 res = optax_optimize(
   beta, X, y, loss_fn, predict, accuracy,
-  optax.sgd(learning_rate=0.01),
-  #optax.adam(learning_rate=1, b1=0.9, b2=0.999, eps=1e-8),
+  #optax.sgd(learning_rate=0.01),
+  optax.adam(learning_rate=1, b1=0.9, b2=0.999, eps=1e-8),
   steps=100, batch_size=100, seed=1234
 )
 
