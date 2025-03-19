@@ -7,8 +7,8 @@ import seaborn as sns
 import jax
 import jax.numpy as jnp
 
-jax.config.update("jax_enable_x64", True)
-jax.config.update('jax_default_device', jax.devices('cpu')[0])
+#jax.config.update("jax_enable_x64", True)
+#jax.config.update('jax_default_device', jax.devices('cpu')[0])
 
 import optax
 
